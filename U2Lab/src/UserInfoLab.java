@@ -40,9 +40,7 @@ public class UserInfoLab {
      */
     public static boolean containsDigit(String str) {
         char[] chars = str.toCharArray();
-        for (char c: chars) {
-            if (Character.isDigit(c))
-                return true;
+        for (char c: chars)  
         }
         return false;
     }
