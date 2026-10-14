@@ -1,4 +1,5 @@
 
+import javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec;
 import java.util.Scanner;
 public class UserInfoLab {
     public static void main(String[] args) {
@@ -54,15 +55,21 @@ public class UserInfoLab {
     }
     public static boolean validatePassword(String password) {
         boolean isValid = true;
+
+        boolean hasUppercase = false;
+        for (int i=0;i<password.length();i++) {
+            String letter = password.substring(i,i+1);
+            int lnumb = letter.compareTo("A");
+            if(0<= lnumb && lnumb <= 25){
+                hasUppercase = true;
+            }
+        }
+
         if(password.length()<8 ){
             System.out.println("Invalid, Too Short");
             isValid = false;
         }
-        boolean hasUppercase = false;
-        for (int i=0;i<password.length();i++) {
-
-        }
-        if(){
+        if(!hasUppercase){
             System.out.println("Invalid, No Uppercase letter");
             isValid = false;
         }
@@ -73,8 +80,20 @@ public class UserInfoLab {
         return isValid;
     }
     public static String maskCreditCard(String creditCardNumber) {
+        if(!allDigits(creditCardNumber)){
+            System.out.println("Invalid credit card number, Not all didgets");
+            return "";
+        }
+        if(creditCardNumber.length()<16){
+            System.out.println("Invalid credit card number, Too many didgets(make it 16)");
+            return "";
+        }
+        if(creditCardNumber.length()>16){
+            System.out.println("Invalid credit card number, Too little didgets(make it 16)");
+            return "";
+        }
         // Fill in this method and if the credit card is valid, return a masked CC
-        return "";
+        return "CC";
     }
 
     /**
