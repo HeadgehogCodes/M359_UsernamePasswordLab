@@ -24,14 +24,13 @@ public class UserInfoLab {
         // Part 3
         // If the user entered a valid password in step 2, then ask the user to enter their
         // credit card number and pass this value to the maskCreditCard method.
-        if (correctPass){
+        if (correctPass) {
             System.out.println("Valid password. Checking Credit Card");
             System.out.println("Enter your credit card");
             String ccn = ns.nextLine();
-            if((maskCreditCard(ccn)).equals("CC")){
-
-            }
-            else
+            System.out.println(maskCreditCard(ccn));
+        }
+            else{
                 System.out.println("Invaid Credit Card Number.");
             // Part 4
             // If the user entered a valid password AND valid credit card number, display the output
@@ -93,7 +92,7 @@ public class UserInfoLab {
             return "";
         }
         // Fill in this method and if the credit card is valid, return a masked CC
-        return "CC";
+        return "********"+creditCardNumber.substring(creditCardNumber.length()-4);
     }
 
     /**
